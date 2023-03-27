@@ -1,0 +1,41 @@
+{% load static %}
+
+{% load widget_tweaks %}
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모장</title>
+    <link rel="stylesheet" href="{% static 'study/styles/style.css' %}">
+</head>
+<body>
+    <form method="post" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="main">
+            <table>
+                <tr>
+                    <td>
+                        <select name="subject" class="subject">
+                        {% for select in form.subject %}
+                            <option value="{{select}}"></option>
+                        {% endfor %}
+                        </select>
+                        {{form.title|add_class:"title"|attr:"placeholder:제목"}}
+                    </td>
+                    
+                </tr>
+
+                <tr>
+                    <td>{{form.content|add_class:"subject-content"|attr:"placeholder:메모를 작성해주세요."}}</td>
+                </tr>
+                <tr>
+                    <td><button class="button" type="submit">완료</button></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

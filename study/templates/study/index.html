@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모장</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'study/styles/style.css' %}">
+</head>
+<body>
+    <div class="bar">
+        <a href="{% url 'memo-create' %}" class="make">만들기</a>
+    </div>
+    <div class="contents">
+        {% for memo in memos %}
+            <div class="content">
+                <span class="content-time">{{memo.dt_created|date:"Y.n.j" }}</span>
+                <a class="content-subject" href="#">
+                    <div class="content-subject-text">
+                        <span>[{{memo.subject}}] {{memo.title}}</span>
+                    </div>
+                </a>
+                <div class="content-title"></div>
+            </div>
+        {% endfor %}
+        
+    </div>
+    <div class="pagination">
+        <a href="#">처음</a>
+        <a href="#">이전</a>
+
+        <a href="#">다음</a>
+        <a href="#">마지막</a>
+        
+    </div>
+    
+</body>
+</html>
