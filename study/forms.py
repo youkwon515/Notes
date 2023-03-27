@@ -9,3 +9,14 @@ class MemoForm(forms.ModelForm):
             "subject",
             "content",
         ]
+
+        CHOICES = (
+            ('ME', '1'),
+            ('YOU', '2'),
+            ('WE', '3'),
+        )
+
+
+        widgets = {
+            "subject": forms.RadioSelect,
+        }

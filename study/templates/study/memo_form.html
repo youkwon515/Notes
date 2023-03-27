@@ -18,11 +18,18 @@
             <table>
                 <tr>
                     <td>
-                        <select name="subject" class="subject">
+                        {% for select in form.subject %}
+                            {{select}}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% comment %} <select name="subject" class="subject">
                         {% for select in form.subject %}
                             <option value="{{select}}"></option>
                         {% endfor %}
-                        </select>
+                        </select> {% endcomment %}
                         {{form.title|add_class:"title"|attr:"placeholder:제목"}}
                     </td>
                     

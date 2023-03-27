@@ -6,17 +6,17 @@ class Memo(models.Model):
     title = models.CharField(max_length=10)
 
     SUBJECT_CHOICES = [
-        (1, "화면구현"),
-        (2, "구현"),
-        (3, "응용"),
-        (4, "영어"), 
-        (5, "분석"),
-        (6, "논술"),
-        (7, "수학"),
-        (8, "국어"),
+        ("화면구현", "화면구현"),
+        ("구현", "구현"),
+        ("응용", "응용"),
+        ("영어", "영어"), 
+        ("분석", "분석"),
+        ("논술", "논술"),
+        ("수학", "수학"),
+        ("국어", "국어"),
     ]
 
-    subject = models.IntegerField(choices=SUBJECT_CHOICES, default=None)
+    subject = models.CharField(choices=SUBJECT_CHOICES, max_length=4, default=None)
 
     content = models.TextField()
 
