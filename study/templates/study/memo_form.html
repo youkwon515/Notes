@@ -25,11 +25,6 @@
                 </tr>
                 <tr>
                     <td>
-                        {% comment %} <select name="subject" class="subject">
-                        {% for select in form.subject %}
-                            <option value="{{select}}"></option>
-                        {% endfor %}
-                        </select> {% endcomment %}
                         {{form.title|add_class:"title"|attr:"placeholder:제목"}}
                     </td>
                     
