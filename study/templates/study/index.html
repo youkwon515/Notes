@@ -27,14 +27,19 @@
         {% endfor %}
         
     </div>
-    <div class="pagination">
-        <a href="#">처음</a>
-        <a href="#">이전</a>
-
-        <a href="#">다음</a>
-        <a href="#">마지막</a>
-        
-    </div>
+    {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">처음</a>
+                <a href="?page={{ page_obj.previous_page_number }}">이전</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">다음</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">마지막</a>
+            {% endif %}
+        </div>
+    {% endif %}
+    
     
 </body>
 </html>
