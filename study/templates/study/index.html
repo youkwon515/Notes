@@ -17,7 +17,7 @@
         {% for memo in memos %}
             <div class="content">
                 <span class="content-time">{{memo.dt_created|date:"Y.n.j" }}</span>
-                <a class="content-subject" href="#">
+                <a class="content-subject" href="{% url 'memo-update' memo.id%}">
                     <div class="content-subject-text">
                         <span>[{{memo.subject}}] {{memo.title}}</span>
                     </div>
